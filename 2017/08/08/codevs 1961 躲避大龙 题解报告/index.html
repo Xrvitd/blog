@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Dragon !">
+<meta property="og:type" content="article">
+<meta property="og:title" content="codevs 1961 躲避大龙 题解报告">
+<meta property="og:url" content="https://xrvitd.github.io/blog/2017/08/08/codevs 1961 躲避大龙 题解报告/index.html">
+<meta property="og:site_name" content="BLOG">
+<meta property="og:description" content="Dragon !">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20161107154634175">
+<meta property="og:updated_time" content="2017-08-08T09:10:47.623Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="codevs 1961 躲避大龙 题解报告">
+<meta name="twitter:description" content="Dragon !">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161107154634175">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xrvitd.github.io/blog/2017/08/08/codevs 1961 躲避大龙 题解报告/"/>
+
+
+
+
+
+  <title>codevs 1961 躲避大龙 题解报告 | BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xrvitd.github.io/blog/blog/2017/08/08/codevs 1961 躲避大龙 题解报告/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xrvitd.">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/pic/title.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">codevs 1961 躲避大龙 题解报告</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T17:05:11+08:00">
+                2017-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Dragon"><a href="#Dragon" class="headerlink" title="Dragon !"></a>Dragon !</h2><a id="more"></a>
+<p>噫</p>
+<p>呜啦啦。。<br>题目描述 Description<br>你早上起来，慢悠悠地来到学校门口，发现已经是八点整了！（这句话里有一个比较重要的条件）</p>
+<p>学校共有N个地点，编号为1~N，其中1号为学校门口（也就是你现在所处的位置），2号为你的教室（也就是你的目的地）。这些地点之间有M条双向道路，对于第i条道路，为了不引起值周队老师的怀疑，你通过它的时间须恰好为Ti秒。这个数可能为负数，意义为时间倒流。</p>
+<p>不过，即使没有引起怀疑，值周队也布下了最后一道防线：大龙会在教室处不定期出现。当然，你也了解大龙的习性：当前时间的秒数越小，大龙出现的概率就越低，例如：8:13:06这一时刻的秒数是06，就要比8:12:57这个时刻更加安全。</p>
+<p>现在的问题是，在不引起怀疑的前提下，最安全的到达时刻的秒数是多少。如果学校门口到教室没有路(-_-||)，请输出60。</p>
+<p>注意，你可以选择在途中的任何时候经过教室，而不结束“旅程”，具体见样例。</p>
+<p>输入描述 Input Description<br>第一行为两个整数，N和M，意义在上面已经说过了。</p>
+<p>第2行~第M+1行，每行代表一条道路。第i+1行代表第i条道路，这一行有3个整数，Ai，Bi，Ti，表示Ai号地点与Bi号地点有一条双向道路，通过它的时间必须为Ti秒。</p>
+<p>输出描述 Output Description<br>只有一行，为最安全的到达时刻的秒数。</p>
+<p>样例输入 Sample Input<br>Input1:</p>
+<p>2 1</p>
+<p>2 1 54</p>
+<p>Input2:</p>
+<p>3 3</p>
+<p>1 2 26</p>
+<p>1 3 17</p>
+<p>2 3 -9</p>
+<p>Input3:</p>
+<p>3 1</p>
+<p>1 3 110</p>
+<p>Input4:</p>
+<p>2 2</p>
+<p>1 2 7</p>
+<p>2 1 9</p>
+<p>Input5:</p>
+<p>2 2</p>
+<p>1 2 3</p>
+<p>1 1 1</p>
+<p>Input6:</p>
+<p>2 2</p>
+<p>1 2 9</p>
+<p>1 2 11</p>
+<p>样例输出 Sample Output<br>Output1:</p>
+<p>06</p>
+<p>Output2:</p>
+<p>00</p>
+<p>Output3:</p>
+<p>60</p>
+<p>Output4:</p>
+<p>01</p>
+<p>Output5:</p>
+<p>00</p>
+<p>Output6:</p>
+<p>01</p>
+<p>数据范围及提示 Data Size &amp; Hint<br>样例1的说明：一共只有两个地点（多么福利的数据啊），也只有一条道路，耗时为54秒。最优方案为，经过这个道路9次，耗时486秒，即8分06秒，于8:08:06到达教室。当然，最优方案不唯一。</p>
+<p>样例2的说明：走1-&gt;3-&gt;1-&gt;2，用时17+17+26，于8:01:00到达；或走1-&gt;2-&gt;3-&gt;1-&gt;2，用时26-9+17+26，于8:01:00到达。</p>
+<p>对于20%的数据，N≤2；对于40%的数据，N≤100；对于70%的数据，N≤1000；</p>
+<p>对于100%的数据，2≤N≤7000，0≤M≤9000，1≤Ai,Bi≤N，|Ti|≤109。</p>
+<p>日常水题。。</p>
+<p>题意就是求从点1 走到点2 使 秒数 最少<br>看着别人能用SPFA做，不过我并不明白咋做，<br>这不就是个搜索么。。。</p>
+<p>首先。，邻接表 存图；<br>在BFS遍历图的基础上，<br>将判重数组增加一个时间维度。</p>
+<p>int t=q[h].t+wi;<br>while(t&lt;0)<br>{<br>   t+=6000000;<br>}<br>if !f[x][t] </p>
+<hr>
+<p>这里要注意边权为负的情况，<br>要一直+60+60+60知道它为正。<br>我们选择一次加 600W  这样比较快。<br>题目数据每次+60 的话会TLE</p>
+<p>嗯。<br>剩下的就没啥难度了。。。</p>
+<p>代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;cstdlib&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#include&lt;bitset&gt;</div><div class="line">#include&lt;iomanip&gt;</div><div class="line">#include&lt;deque&gt;</div><div class="line">#define INF 1000000000</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">#define N 100005</div><div class="line">#define P 1000000007</div><div class="line">#define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot;=&quot;&lt;&lt;x&lt;&lt;endl</div><div class="line">#define MP(x,y) make_pair(x,y)</div><div class="line">using namespace std;</div><div class="line">int n,m,ha=0,t=1,h[7010],p;</div><div class="line">bool f[7010][61];</div><div class="line">struct zqm</div><div class="line">&#123;</div><div class="line">	int v,next,w;</div><div class="line">&#125;q[20001];</div><div class="line">struct re</div><div class="line">&#123;</div><div class="line">	int x,t;</div><div class="line">&#125;qw[100001];</div><div class="line">inline int get_num()</div><div class="line">&#123;</div><div class="line">int num = 0;</div><div class="line">char c;</div><div class="line">bool flag = false;</div><div class="line">while ((c = getchar()) == &apos; &apos; || c == &apos;\n&apos; || c == &apos;\r&apos;);</div><div class="line">if (c == &apos;-&apos;) flag = true;</div><div class="line">else num = c - &apos;0&apos;;</div><div class="line">while (isdigit(c = getchar()))</div><div class="line">num = num * 10 + c - &apos;0&apos;;</div><div class="line">return (flag ? -1 : 1) * num;</div><div class="line">&#125;</div><div class="line">void add(int a,int b,int c)</div><div class="line">&#123;</div><div class="line">	p++;</div><div class="line">	q[p].v=b;</div><div class="line">	q[p].w=c;</div><div class="line">	q[p].next=h[a];</div><div class="line">	h[a]=p;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	cin&gt;&gt;n&gt;&gt;m;</div><div class="line">	for(int i=1;i&lt;=m;i++)</div><div class="line">	&#123;</div><div class="line">		int q,w,e;</div><div class="line">		cin&gt;&gt;q&gt;&gt;w&gt;&gt;e;</div><div class="line">		add(q,w,e);</div><div class="line">		add(w,q,e);</div><div class="line">	&#125; </div><div class="line">    qw[1].x=1;</div><div class="line">    qw[1].t=0;</div><div class="line">    while(ha&lt;=t)</div><div class="line">    &#123;</div><div class="line">    	ha++;</div><div class="line">    	p=h[qw[ha].x];</div><div class="line">    	while(p)</div><div class="line">    	&#123;</div><div class="line">    		int k=(qw[ha].t+q[p].w);</div><div class="line">    		while(k&lt;0)</div><div class="line">    		&#123;</div><div class="line">    			k+=60000000;</div><div class="line">    		&#125;</div><div class="line">    		if(!f[q[p].v][k%60])</div><div class="line">    		&#123;</div><div class="line">    			f[q[p].v][k%60]=1;</div><div class="line">    			t++;</div><div class="line">    			qw[t].x=q[p].v;</div><div class="line">    			qw[t].t=(qw[ha].t+q[p].w)%60;</div><div class="line">    		&#125;</div><div class="line">    		p=q[p].next;</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">    f[2][60]=1;</div><div class="line">    for(int i=0;i&lt;=60;i++)</div><div class="line">	&#123;</div><div class="line">		if(f[2][i])</div><div class="line">		&#123;</div><div class="line">			if(i&lt;=9)</div><div class="line">			cout&lt;&lt;0;</div><div class="line">			cout&lt;&lt;i;</div><div class="line">			return 0;</div><div class="line">		&#125;</div><div class="line">	&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>~<br><img src="http://img.blog.csdn.net/20161107154634175" alt="雷姆镇楼"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/08/08/codevs 2833 奇怪的梦境 题解报告/" rel="next" title="codevs 2833 奇怪的梦境 题解报告">
+                <i class="fa fa-chevron-left"></i> codevs 2833 奇怪的梦境 题解报告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/08/08/codevs 2980 买帽子 题解报告/" rel="prev" title="codevs 2980 买帽子 题解报告">
+                codevs 2980 买帽子 题解报告 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/pic/title.jpg"
+               alt="Xrvitd." />
+          <p class="site-author-name" itemprop="name">Xrvitd.</p>
+           
+              <p class="site-description motion-element" itemprop="description"> 自己选择的路，跪着也要走完。 </p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dragon"><span class="nav-number">1.</span> <span class="nav-text">Dragon !</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xrvitd.</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

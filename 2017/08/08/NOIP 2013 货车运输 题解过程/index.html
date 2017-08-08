@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="···········">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NOIP 2013 货车运输 题解过程">
+<meta property="og:url" content="https://xrvitd.github.io/blog/2017/08/08/NOIP 2013 货车运输 题解过程/index.html">
+<meta property="og:site_name" content="BLOG">
+<meta property="og:description" content="···········">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-08T09:23:31.519Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NOIP 2013 货车运输 题解过程">
+<meta name="twitter:description" content="···········">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xrvitd.github.io/blog/2017/08/08/NOIP 2013 货车运输 题解过程/"/>
+
+
+
+
+
+  <title>NOIP 2013 货车运输 题解过程 | BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xrvitd.github.io/blog/blog/2017/08/08/NOIP 2013 货车运输 题解过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xrvitd.">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/pic/title.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NOIP 2013 货车运输 题解过程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T17:18:59+08:00">
+                2017-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="···········"><a href="#···········" class="headerlink" title="···········"></a>···········</h2><a id="more"></a>
+<p>今天做了NOIP 2013 的货车运输。<br>刚开始一看题目。</p>
+<p>**题目描述 Description<br>A 国有 n 座城市，编号从 1 到 n，城市之间有 m 条双向道路。每一条道路对车辆都有重量限制，简称限重。现在有 q 辆货车在运输货物，司机们想知道每辆车在不超过车辆限重的情况下，最多能运多重的货物。<br>输入描述 Input Description<br>第一行有两个用一个空格隔开的整数 n，m，表示 A 国有 n 座城市和 m 条道路。<br>接下来 m 行每行 3 个整数 x、y、z，每两个整数之间用一个空格隔开，表示从 x 号城市到 y 号城市有一条限重为 z 的道路。注意：x 不等于 y，两座城市之间可能有多条道路。<br>接下来一行有一个整数 q，表示有 q 辆货车需要运货。<br>接下来 q 行，每行两个整数 x、y，之间用一个空格隔开，表示一辆货车需要从 x 城市运输货物到 y 城市，注意：x 不等于 y。<br>输出描述 Output Description<br>输出共有 q 行，每行一个整数，表示对于每一辆货车，它的最大载重是多少。如果货车不能到达目的地，输出-1。<br>样例输入 Sample Input<br>4 3<br>1 2 4<br>2 3 3<br>3 1 1<br>3<br>1 3<br>1 4<br>1 3<br>样例输出 Sample Output<br>3<br>-1<br>3<br>数据范围及提示 Data Size &amp; Hint<br>对于 30%的数据，0 &lt; n &lt; 1,000，0 &lt; m &lt; 10,000，0 &lt; q &lt; 1,000；<br>对于 60%的数据，0 &lt; n &lt; 1,000，0 &lt; m &lt; 50,000，0 &lt; q &lt; 1,000；<br>对于 100%的数据，0 &lt; n &lt; 10,000，0 &lt; m &lt; 50,000，0 &lt; q &lt; 30,000，0 ≤ z ≤ 100,000。</p>
+<p>首先想到的是并查集维护的最大生成树。<br>然后对于每一次询问，一条边一条边的加，直到加到某一条边后能导致所询问的两点能够联通；因为已经按照边权从小到大排序过，所以现在加的边肯定是通路里面权值最小的边。输出此边即可。</p>
+<p>不难看出，这种方法是正确的，但是对于后40%的数据会TLE。<br>（后面有60分的代码，这种做法比较好写，适合骗分）<br>所以，我们只进行一次最大生成树，之后用倍增的方法求每次询问的两点的LCA 查找过程中维护道路上的最小值，最后输出即可。复杂度为O（mlogn）的。</p>
+<p>60分代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;cstdlib&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#include&lt;bitset&gt;</div><div class="line">#include&lt;iomanip&gt;</div><div class="line">#include&lt;deque&gt;</div><div class="line">#define INF 1000000000</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">#define N 100005</div><div class="line">#define P 1000000007</div><div class="line">#define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot;=&quot;&lt;&lt;x&lt;&lt;endl</div><div class="line">#define MP(x,y) make_pair(x,y)</div><div class="line">using namespace std;</div><div class="line">int n,m,s,ti,c;</div><div class="line">int h[N],v[N],next[N],p=0,d[N],f[N];</div><div class="line">inline int get_num()</div><div class="line">&#123;   </div><div class="line">int num = 0;</div><div class="line">char c;</div><div class="line">bool flag = false;</div><div class="line">while ((c = getchar()) == &apos; &apos; || c == &apos;\n&apos; || c == &apos;\r&apos;);   </div><div class="line">if (c == &apos;-&apos;) flag = true;  </div><div class="line">else num = c - &apos;0&apos;; </div><div class="line">while (isdigit(c = getchar()))      </div><div class="line">num = num * 10 + c - &apos;0&apos;;</div><div class="line">return (flag ? -1 : 1) * num;</div><div class="line">&#125;</div><div class="line">struct re</div><div class="line">&#123;</div><div class="line">    int x,y,bh,qz;</div><div class="line">&#125; q[N];</div><div class="line">void mem()</div><div class="line">&#123;</div><div class="line">    for(int i=1;i&lt;=N;i++)</div><div class="line">    &#123;</div><div class="line">        f[i]=i;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int find(int x)</div><div class="line">&#123;</div><div class="line">    return f[x]==x ? x:f[x]=find(f[x]);</div><div class="line">&#125;</div><div class="line">void add(int a,int b,int c)</div><div class="line">&#123;</div><div class="line">    p++;</div><div class="line">    q[p].x=a;</div><div class="line">    q[p].y=b;</div><div class="line">    q[p].bh=p;</div><div class="line">    q[p].qz=c;</div><div class="line">&#125;</div><div class="line">bool cmp(const struct re a,const struct re b)</div><div class="line">&#123;</div><div class="line">    return a.qz&gt;b.qz;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    n=get_num();</div><div class="line">    m=get_num();</div><div class="line">    for(int i=1;i&lt;=m;i++)</div><div class="line">    &#123;</div><div class="line">        int qqq,w,e;</div><div class="line">        qqq=get_num();w=get_num();e=get_num();</div><div class="line">        add(qqq,w,e);</div><div class="line">        add(w,qqq,e);</div><div class="line">    &#125;</div><div class="line">    sort(q+1,q+p+1,cmp);</div><div class="line">    /*for(int i=1;i&lt;=m*2;i++)</div><div class="line">    &#123;</div><div class="line">        cout&lt;&lt;q[i].qz&lt;&lt;&quot; &quot;;</div><div class="line">    &#125;*/</div><div class="line">c=  get_num();</div><div class="line">    for(int i=1;i&lt;=c;i++)</div><div class="line">    &#123;</div><div class="line">        int qq,w,ans=2147483647;</div><div class="line">        bool vv=0;</div><div class="line">        qq=get_num();w=get_num();</div><div class="line">        mem();</div><div class="line">        for(int j=1;j&lt;=p;j++)</div><div class="line">        &#123;</div><div class="line">            if(find(q[j].x)!=find(q[j].y))</div><div class="line">            &#123;</div><div class="line">                f[f[q[j].x]]=f[q[j].y];</div><div class="line">                //ans=min(ans,q[j].qz);</div><div class="line">            &#125;</div><div class="line">            if(find(qq)==find(w))</div><div class="line">            &#123;</div><div class="line">                printf(&quot;%d\n&quot;,q[j].qz);</div><div class="line">                vv=1;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if(!vv)</div><div class="line">        &#123;</div><div class="line">            printf(&quot;-1\n&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>满分LCA 做法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div></pre></td><td class="code"><pre><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;cstdlib&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#include&lt;bitset&gt;</div><div class="line">#include&lt;iomanip&gt;</div><div class="line">#include&lt;deque&gt;</div><div class="line">#define INF 1000000000</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">#define N 100005</div><div class="line">#define P 1000000007</div><div class="line">#define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot;=&quot;&lt;&lt;x&lt;&lt;endl</div><div class="line">#define MP(x,y) make_pair(x,y)</div><div class="line">using namespace std;</div><div class="line">int n,m,s,ti,c;</div><div class="line">int h[N],v[N],next[N],p=0,d[N],f[N],w[N],l[N],j[N][15],ww[N][15],deep[N];</div><div class="line">bool vv[N];</div><div class="line">inline int get_num()</div><div class="line">&#123;   </div><div class="line">int num = 0;</div><div class="line">char c;</div><div class="line">bool flag = false;</div><div class="line">while ((c = getchar()) == &apos; &apos; || c == &apos;\n&apos; || c == &apos;\r&apos;);   </div><div class="line">if (c == &apos;-&apos;) flag = true;  </div><div class="line">else num = c - &apos;0&apos;; </div><div class="line">while (isdigit(c = getchar()))      </div><div class="line">num = num * 10 + c - &apos;0&apos;;</div><div class="line">return (flag ? -1 : 1) * num;</div><div class="line">&#125;</div><div class="line">struct re</div><div class="line">&#123;</div><div class="line">    int x,y,bh,qz;</div><div class="line">&#125; q[N];</div><div class="line">int find(int x)</div><div class="line">&#123;</div><div class="line">    return f[x]==x ? x:f[x]=find(f[x]);</div><div class="line">&#125;</div><div class="line">void add(int a,int b,int c)</div><div class="line">&#123;</div><div class="line">    p++;</div><div class="line">    v[p]=b;</div><div class="line">    w[p]=c;</div><div class="line">    next[p]=h[a];</div><div class="line">    h[a]=p;</div><div class="line">    l[p]=a;</div><div class="line">&#125;</div><div class="line">void addd(int a,int b,int c)</div><div class="line">&#123;</div><div class="line">    p++;</div><div class="line">    q[p].x=a;</div><div class="line">    q[p].y=b;</div><div class="line">    q[p].bh=p;</div><div class="line">    q[p].qz=c;</div><div class="line">&#125;</div><div class="line">bool cmp(const struct re a,const struct re b)</div><div class="line">&#123;</div><div class="line">    return a.qz&gt;b.qz;</div><div class="line">&#125;</div><div class="line">void dfs(int x,int s)</div><div class="line">&#123;</div><div class="line">    deep[x]=s;</div><div class="line">    for(int i=1;(1&lt;&lt;i)&lt;s;i++)</div><div class="line">    &#123;</div><div class="line">        j[x][i]=j[j[x][i-1]][i-1];</div><div class="line">        ww[x][i]=min(ww[x][i-1],ww[j[x][i-1]][i-1]);</div><div class="line">        //cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;i&lt;&lt;&quot; :&quot;&lt;&lt;ww[x][i]&lt;&lt;endl; </div><div class="line">    &#125;</div><div class="line">    int p=h[x];</div><div class="line">    while(p)</div><div class="line">    &#123;</div><div class="line">        if(vv[v[p]])</div><div class="line">        &#123;</div><div class="line">            p=next[p];</div><div class="line">            continue;</div><div class="line">        &#125;</div><div class="line">        vv[v[p]]=1;</div><div class="line">        j[v[p]][0]=x;</div><div class="line">        ww[v[p]][0]=w[p];</div><div class="line">        dfs(v[p],s+1);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    return;</div><div class="line">&#125;</div><div class="line">int just_doit(int x,int y)</div><div class="line">&#123;</div><div class="line">    int ans=2147483647;</div><div class="line">    if(deep[y]&gt;deep[x])</div><div class="line">    &#123;</div><div class="line">        int tt=x;</div><div class="line">        x=y;</div><div class="line">        y=tt;</div><div class="line">    &#125;</div><div class="line">    for(int i=15;i&gt;=0;i--)</div><div class="line">    &#123;</div><div class="line">        if(deep[x]-(1&lt;&lt;i)&gt;=deep[y])</div><div class="line">        &#123;</div><div class="line">            ans=min(ans,ww[x][i]);</div><div class="line">            x=j[x][i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    if(x==y)</div><div class="line">    &#123;</div><div class="line">        return ans;</div><div class="line">    &#125; </div><div class="line">    for(int i=15;i&gt;=0;i--)</div><div class="line">    &#123;</div><div class="line">        if(deep[x]-(1&lt;&lt;i)&gt;=1&amp;&amp;j[x][i]!=j[y][i])</div><div class="line">        &#123;</div><div class="line">            ans=min(ans,ww[x][i]);</div><div class="line">            ans=min(ans,ww[y][i]);</div><div class="line">            x=j[x][i];</div><div class="line">            y=j[y][i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    ans=min(ans,ww[x][0]);</div><div class="line">    ans=min(ans,ww[y][0]);</div><div class="line">    return ans;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    n=get_num();</div><div class="line">    m=get_num();</div><div class="line">    for(int i=1;i&lt;=m;i++)</div><div class="line">    &#123;</div><div class="line">        int qqq,w,e;</div><div class="line">        qqq=get_num();w=get_num();e=get_num();</div><div class="line">        addd(qqq,w,e);</div><div class="line">        addd(w,qqq,e);</div><div class="line">    &#125;</div><div class="line">    sort(q+1,q+p+1,cmp);</div><div class="line">    for(int i=1;i&lt;=n;i++) f[i]=i;</div><div class="line">    int k=0;p=0;</div><div class="line">    for(int i=1;i&lt;=m*2;i++)</div><div class="line">    &#123;</div><div class="line">        int a,b;</div><div class="line">        a=q[i].x;</div><div class="line">        b=q[i].y;</div><div class="line">        if(find(a)!=find(b))</div><div class="line">        &#123;</div><div class="line">            add(a,b,q[i].qz);</div><div class="line">            add(b,a,q[i].qz);</div><div class="line">            f[find(a)]=find(f[b]);</div><div class="line">            //cout&lt;&lt;a&lt;&lt;&quot; &quot;&lt;&lt;b&lt;&lt;&quot;\n&quot;;</div><div class="line">            k++;</div><div class="line">        &#125;</div><div class="line">        if(k==n-1)</div><div class="line">        break;</div><div class="line">    &#125;</div><div class="line">    dfs(1,1);</div><div class="line">    c=get_num();</div><div class="line">    //cout&lt;&lt;ww[5][1]&lt;&lt;&quot; &amp;&amp;&amp;\n&quot;;</div><div class="line">    for(int i=1;i&lt;=c;i++)</div><div class="line">    &#123;</div><div class="line">        int qq,w,ans=0;</div><div class="line">        qq=get_num();w=get_num();</div><div class="line">        if(find(qq)!=find(w))</div><div class="line">        &#123;</div><div class="line">            cout&lt;&lt;-1&lt;&lt;&quot;\n&quot;;</div><div class="line">            continue;</div><div class="line">        &#125;</div><div class="line">        ans=just_doit(qq,w);</div><div class="line">        cout&lt;&lt;ans&lt;&lt;&quot;\n&quot;;</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>噫。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/08/08/codevs 数独系列 题解报告/" rel="next" title="codevs 数独系列 题解报告">
+                <i class="fa fa-chevron-left"></i> codevs 数独系列 题解报告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/08/08/codevs 3304 水果姐逛水果街Ⅰ  解题记录/" rel="prev" title="codevs 3304 水果姐逛水果街Ⅰ  解题记录">
+                codevs 3304 水果姐逛水果街Ⅰ  解题记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/pic/title.jpg"
+               alt="Xrvitd." />
+          <p class="site-author-name" itemprop="name">Xrvitd.</p>
+           
+              <p class="site-description motion-element" itemprop="description"> 自己选择的路，跪着也要走完。 </p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#···········"><span class="nav-number">1.</span> <span class="nav-text">···········</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xrvitd.</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

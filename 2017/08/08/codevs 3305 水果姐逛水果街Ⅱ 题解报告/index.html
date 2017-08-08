@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="············">
+<meta property="og:type" content="article">
+<meta property="og:title" content="codevs 3305 水果姐逛水果街Ⅱ 题解报告">
+<meta property="og:url" content="https://xrvitd.github.io/blog/2017/08/08/codevs 3305 水果姐逛水果街Ⅱ 题解报告/index.html">
+<meta property="og:site_name" content="BLOG">
+<meta property="og:description" content="············">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-08T09:25:32.475Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="codevs 3305 水果姐逛水果街Ⅱ 题解报告">
+<meta name="twitter:description" content="············">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xrvitd.github.io/blog/2017/08/08/codevs 3305 水果姐逛水果街Ⅱ 题解报告/"/>
+
+
+
+
+
+  <title>codevs 3305 水果姐逛水果街Ⅱ 题解报告 | BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xrvitd.github.io/blog/blog/2017/08/08/codevs 3305 水果姐逛水果街Ⅱ 题解报告/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xrvitd.">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/pic/title.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">codevs 3305 水果姐逛水果街Ⅱ 题解报告</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T17:19:00+08:00">
+                2017-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="············"><a href="#············" class="headerlink" title="············"></a>············</h2><a id="more"></a>
+<p>今天，栋栋大神又在做题了，宝宝看他一直没做出来，就来凑凑热闹，。。<br>果然，，我也做了好久。<br>快仨小时了都；；</p>
+<p>先上题目：</p>
+<h3 id="题目描述-Description"><a href="#题目描述-Description" class="headerlink" title="题目描述 Description"></a>题目描述 Description</h3><p>水果姐第二天心情也很不错，又来逛水果街。</p>
+<p>突然，cgh又出现了。cgh施展了魔法，水果街变成了树结构（店与店之间只有一条唯一的路径）。</p>
+<p>同样还是n家水果店，编号为1~n，每家店能买水果也能卖水果，并且同一家店卖与买的价格一样。</p>
+<p>cgh给出m个问题，每个问题要求水果姐从第x家店出发到第y家店，途中只能选一家店买一个水果，然后选一家店（可以是同一家店，但不能往回走）卖出去。求最多可以赚多少钱。</p>
+<p>水果姐向学过oi的你求助。</p>
+<h3 id="输入描述-Input-Description"><a href="#输入描述-Input-Description" class="headerlink" title="输入描述 Input Description"></a>输入描述 Input Description</h3><p>第一行n，表示有n家店</p>
+<p>下来n个正整数，表示每家店一个苹果的价格。</p>
+<p>下来n-1行，每行两个整数x，y，表示第x家店和第y家店有一条边。</p>
+<p>下来一个整数m，表示下来有m个询问。</p>
+<p>下来有m行，每行两个整数x和y，表示从第x家店出发到第y家店。</p>
+<h3 id="输出描述-Output-Description"><a href="#输出描述-Output-Description" class="headerlink" title="输出描述 Output Description"></a>输出描述 Output Description</h3><p>有m行。</p>
+<p>每行对应一个询问，一个整数，表示面对cgh的每次询问，水果姐最多可以赚到多少钱。</p>
+<h3 id="样例输入-Sample-Input"><a href="#样例输入-Sample-Input" class="headerlink" title="样例输入 Sample Input"></a>样例输入 Sample Input</h3><p>10<br>16 5 1 15 15 1 8 9 9 15<br>1 2<br>1 3<br>2 4<br>2 5<br>2 6<br>6 7<br>4 8<br>1 9<br>1 10<br>6<br>9 1<br>5 1<br>1 7<br>3 3<br>1 1<br>3 6</p>
+<h3 id="样例输出-Sample-Output"><a href="#样例输出-Sample-Output" class="headerlink" title="样例输出 Sample Output"></a>样例输出 Sample Output</h3><p>7<br>11<br>7<br>0<br>0<br>15</p>
+<p>N&lt;=200000  m&lt;=10000</p>
+<p>和T1要求的内容一样，不过不是线性的图，而是一颗树；<br>考虑LCA 倍增。<br>在求两点LCA的同时处理出最大利益；<br>对于这棵树，维护j[x][y]  为从点x向上跳2^y 距离的点是谁；<br>ma[N][20],mi[N][20],lr[N][20],rl[N][20]；<br>分别为 区间最大 区间最小 从左到右最大利润 从右到左最大利润<br>递推式为：<br>lr[x][i]=max(ma[j[x][i-1]][i-1]-mi[x][i-1],max(lr[x][i-1],lr[j[x][i-1]][i-1]));<br>rl[x][i]=max(ma[x][i-1]-mi[j[x][i-1]][i-1],max(rl[x][i-1],rl[j[x][i-1]][i-1]));<br>然后dfs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">void dfs(int x,int s)</div><div class="line">&#123;</div><div class="line">	deep[x]=s;</div><div class="line">	for(int i=1;(1&lt;&lt;i)&lt;s;i++)</div><div class="line">	&#123;</div><div class="line">		j[x][i]=j[j[x][i-1]][i-1];</div><div class="line">		ma[x][i]=max(ma[x][i-1],ma[j[x][i-1]][i-1]);</div><div class="line">		mi[x][i]=min(mi[x][i-1],mi[j[x][i-1]][i-1]);</div><div class="line">		lr[x][i]=max(ma[j[x][i-1]][i-1]-mi[x][i-1],max(lr[x][i-1],lr[j[x][i-1]][i-1]));</div><div class="line">		rl[x][i]=max(ma[x][i-1]-mi[j[x][i-1]][i-1],max(rl[x][i-1],rl[j[x][i-1]][i-1]));</div><div class="line">	&#125;</div><div class="line">	int k=h[x];</div><div class="line">	while(k)</div><div class="line">	&#123;</div><div class="line">		if(vv[v[k]])</div><div class="line">		&#123;</div><div class="line">			k=nex[k];</div><div class="line">			continue;</div><div class="line">		&#125;</div><div class="line">			vv[v[k]]=1;</div><div class="line">			j[v[k]][0]=x;</div><div class="line">		    ma[v[k]][0]=max(a[x],a[v[k]]);</div><div class="line">		    mi[v[k]][0]=min(a[x],a[v[k]]);</div><div class="line">		    lr[v[k]][0]=a[x]-a[v[k]];</div><div class="line">		    rl[v[k]][0]=a[v[k]]-a[x];</div><div class="line">			dfs(v[k],s+1);</div><div class="line">			k=nex[k];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>dfs后进行倍增求LCA<br>找一条从X到Y的道路，维护X-LCA(X,Y)这一条链上从左到右最大利益和LCA(X,Y)-Y这一条链上从右到左最大利益；<br>最后再考虑 点LCA(X,Y)和两侧最大最小值的差是否比求得两侧最大利益大。<br>四者取max<br>即为答案；</p>
+<p>代码：：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div></pre></td><td class="code"><pre><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;cstdlib&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#include&lt;bitset&gt;</div><div class="line">#include&lt;iomanip&gt;</div><div class="line">#include&lt;deque&gt;</div><div class="line">#define INF 1000000000</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">#define N 1000005</div><div class="line">#define P 1000000007</div><div class="line">#define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot;=&quot;&lt;&lt;x&lt;&lt;endl</div><div class="line">#define MP(x,y) make_pair(x,y)</div><div class="line">using namespace std;</div><div class="line">int n,m;</div><div class="line">int a[200010],p=0,nex[N*2],h[N*2],v[N*2],j[N][20],ma[N][20],mi[N][20],lr[N][20],rl[N][20],deep[N];</div><div class="line">void add(int aa,int b)</div><div class="line">&#123;</div><div class="line">	p++;</div><div class="line">	v[p]=b;</div><div class="line">	nex[p]=h[aa];</div><div class="line">	h[aa]=p;</div><div class="line">&#125;</div><div class="line">bool vv[N];</div><div class="line">inline int get_num()</div><div class="line">&#123;</div><div class="line">int num = 0;</div><div class="line">char c;</div><div class="line">bool flag = false;</div><div class="line">while ((c = getchar()) == &apos; &apos; || c == &apos;\n&apos; || c == &apos;\r&apos;);</div><div class="line">if (c == &apos;-&apos;) flag = true;</div><div class="line">else num = c - &apos;0&apos;;</div><div class="line">while (isdigit(c = getchar()))</div><div class="line">num = num * 10 + c - &apos;0&apos;;</div><div class="line">return (flag ? -1 : 1) * num;</div><div class="line">&#125;</div><div class="line">void dfs(int x,int s)</div><div class="line">&#123;</div><div class="line">	deep[x]=s;</div><div class="line">	for(int i=1;(1&lt;&lt;i)&lt;s;i++)</div><div class="line">	&#123;</div><div class="line">		j[x][i]=j[j[x][i-1]][i-1];</div><div class="line">		ma[x][i]=max(ma[x][i-1],ma[j[x][i-1]][i-1]);</div><div class="line">		mi[x][i]=min(mi[x][i-1],mi[j[x][i-1]][i-1]);</div><div class="line">		lr[x][i]=max(ma[j[x][i-1]][i-1]-mi[x][i-1],max(lr[x][i-1],lr[j[x][i-1]][i-1]));</div><div class="line">		rl[x][i]=max(ma[x][i-1]-mi[j[x][i-1]][i-1],max(rl[x][i-1],rl[j[x][i-1]][i-1]));</div><div class="line">	&#125;</div><div class="line">	int k=h[x];</div><div class="line">	while(k)</div><div class="line">	&#123;</div><div class="line">		if(vv[v[k]])</div><div class="line">		&#123;</div><div class="line">			k=nex[k];</div><div class="line">			continue;</div><div class="line">		&#125;</div><div class="line">			vv[v[k]]=1;</div><div class="line">			j[v[k]][0]=x;</div><div class="line">		    ma[v[k]][0]=max(a[x],a[v[k]]);</div><div class="line">		    mi[v[k]][0]=min(a[x],a[v[k]]);</div><div class="line">		    lr[v[k]][0]=a[x]-a[v[k]];</div><div class="line">		    rl[v[k]][0]=a[v[k]]-a[x];</div><div class="line">			dfs(v[k],s+1);</div><div class="line">			k=nex[k];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int just_doit(int x,int y)</div><div class="line">&#123;</div><div class="line">	int ans=0,xmi=a[x],yma=a[y];</div><div class="line">	if(x==y)</div><div class="line">	&#123;</div><div class="line">		return 0;</div><div class="line">	&#125;</div><div class="line">	if(deep[x]&gt;deep[y])</div><div class="line">	&#123;</div><div class="line">		int mii=a[x],maa=0;</div><div class="line">		for(int i=15;i&gt;=0;i--)</div><div class="line">	    &#123;</div><div class="line">		if(deep[x]-(1&lt;&lt;i)&gt;=deep[y])</div><div class="line">		&#123;</div><div class="line">			ans=max(ans,max(lr[x][i],ma[x][i]-xmi));</div><div class="line">			xmi=min(xmi,mi[x][i]);</div><div class="line">			x=j[x][i];</div><div class="line">		&#125;</div><div class="line">	    &#125;</div><div class="line">	&#125;else</div><div class="line">	&#123;</div><div class="line">		if(deep[x]&lt;deep[y])</div><div class="line">		&#123;</div><div class="line">		int mii=2147483647,maa=a[y];</div><div class="line">		for(int i=15;i&gt;=0;i--)</div><div class="line">	    &#123;</div><div class="line">		if(deep[y]-(1&lt;&lt;i)&gt;=deep[x])</div><div class="line">		&#123;</div><div class="line">			ans=max(ans,max(rl[y][i],yma-mi[y][i]));</div><div class="line">			yma=max(yma,ma[y][i]);</div><div class="line">			y=j[y][i];</div><div class="line">		&#125;</div><div class="line">	    &#125;</div><div class="line">		&#125;</div><div class="line">		else</div><div class="line">		&#123;</div><div class="line">			xmi=a[x];</div><div class="line">			yma=a[y];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	if(x==y)</div><div class="line">	&#123;</div><div class="line">		return ans;</div><div class="line">	&#125;</div><div class="line">	int may=0,mix=a[x];</div><div class="line">	for(int i=15;i&gt;=0;i--)</div><div class="line">	&#123;</div><div class="line">		if(deep[x]-(1&lt;&lt;i)&gt;=1&amp;&amp;j[x][i]!=j[y][i])</div><div class="line">		&#123;</div><div class="line">			ans=max(ans,max(lr[x][i],ma[x][i]-xmi));</div><div class="line">			ans=max(ans,max(rl[y][i],yma-mi[y][i]));</div><div class="line">			xmi=min(xmi,mi[x][i]);</div><div class="line">			yma=max(yma,ma[y][i]);</div><div class="line">			x=j[x][i];</div><div class="line">			y=j[y][i];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	ans=max(ans,max(yma-xmi,max(a[j[y][0]]-xmi,yma-a[j[x][0]])));</div><div class="line">	//刚开始就卡在这里一个多小时，注意！！</div><div class="line">	return ans;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	n=get_num();</div><div class="line">	for(int i=1;i&lt;=n;i++)</div><div class="line">	&#123;</div><div class="line">		a[i]=get_num();</div><div class="line">	&#125;</div><div class="line">	for(int i=1;i&lt;n;i++)</div><div class="line">	&#123;</div><div class="line">		int q,w;</div><div class="line">		q=get_num();w=get_num();</div><div class="line">		add(q,w);</div><div class="line">		add(w,q);</div><div class="line">	&#125;</div><div class="line">	vv[1]=1;</div><div class="line">	dfs(1,1);</div><div class="line">	//cout&lt;&lt;rl[6][1];</div><div class="line">	cin&gt;&gt;m;</div><div class="line">	for(int i=1;i&lt;=m;i++)</div><div class="line">	&#123;</div><div class="line">		int q,w;</div><div class="line">		q=get_num();w=get_num();</div><div class="line">		cout&lt;&lt;just_doit(q,w)&lt;&lt;&quot;\n&quot;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  噫。~~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/08/08/codevs 3304 水果姐逛水果街Ⅰ  解题记录/" rel="next" title="codevs 3304 水果姐逛水果街Ⅰ  解题记录">
+                <i class="fa fa-chevron-left"></i> codevs 3304 水果姐逛水果街Ⅰ  解题记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/pic/title.jpg"
+               alt="Xrvitd." />
+          <p class="site-author-name" itemprop="name">Xrvitd.</p>
+           
+              <p class="site-description motion-element" itemprop="description"> 自己选择的路，跪着也要走完。 </p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#············"><span class="nav-number">1.</span> <span class="nav-text">············</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-Description"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述 Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入描述-Input-Description"><span class="nav-number">1.2.</span> <span class="nav-text">输入描述 Input Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出描述-Output-Description"><span class="nav-number">1.3.</span> <span class="nav-text">输出描述 Output Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-Sample-Input"><span class="nav-number">1.4.</span> <span class="nav-text">样例输入 Sample Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-Sample-Output"><span class="nav-number">1.5.</span> <span class="nav-text">样例输出 Sample Output</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xrvitd.</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

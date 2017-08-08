@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="这个是真的烦。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="codevs 数独系列 题解报告">
+<meta property="og:url" content="https://xrvitd.github.io/blog/2017/08/08/codevs 数独系列 题解报告/index.html">
+<meta property="og:site_name" content="BLOG">
+<meta property="og:description" content="这个是真的烦。。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-08T09:22:15.500Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="codevs 数独系列 题解报告">
+<meta name="twitter:description" content="这个是真的烦。。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xrvitd.github.io/blog/2017/08/08/codevs 数独系列 题解报告/"/>
+
+
+
+
+
+  <title>codevs 数独系列 题解报告 | BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xrvitd.github.io/blog/blog/2017/08/08/codevs 数独系列 题解报告/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xrvitd.">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/pic/title.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">codevs 数独系列 题解报告</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T17:18:58+08:00">
+                2017-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="这个是真的烦。。"><a href="#这个是真的烦。。" class="headerlink" title="这个是真的烦。。"></a>这个是真的烦。。</h2><a id="more"></a>
+<h3 id="4966-简单数独-4491-验证数独-2207-验证数独"><a href="#4966-简单数独-4491-验证数独-2207-验证数独" class="headerlink" title="4966 简单数独 4491 验证数独 2207 验证数独"></a>4966 简单数独 4491 验证数独 2207 验证数独</h3><h3 id="2924-数独挑战-1174-靶形数独"><a href="#2924-数独挑战-1174-靶形数独" class="headerlink" title="2924 数独挑战 1174 靶形数独"></a>2924 数独挑战 1174 靶形数独</h3><p>一共5道题目，全都和数独有关：</p>
+<h3 id="4966-简单数独"><a href="#4966-简单数独" class="headerlink" title="4966 简单数独"></a>4966 简单数独</h3><p> 时间限制: 1 s<br> 空间限制: 1000 KB<br> 题目等级 : 黄金 Gold<br> 题解<br>题目描述 Description<br>某一天，小强忽然迷上了数独，他想从最简单的数独做起，即4<em>4的数独，然而他仍然做不出来，所以想请你帮帮他。4</em>4即每个数字在每一行、每一列和每一区只能出现一次。</p>
+<p>输入描述 Input Description<br>4行4列。</p>
+<p>每个数字用空格隔开。</p>
+<p>0代表要填的数.</p>
+<p>输出描述 Output Description<br>输出答案。</p>
+<p>排成4行4列。</p>
+<p>每个数字用空格隔开.</p>
+<p>样例输入 Sample Input<br>0 0 4 0</p>
+<p>2 0 0 0</p>
+<p>1 0 0 0</p>
+<p>0 0 3 0</p>
+<p>样例输出 Sample Output<br>3 1 4 2</p>
+<p>2 4 1 3</p>
+<p>1 3 2 4</p>
+<p>4 2 3 1</p>
+<p>数据范围及提示 Data Size &amp; Hint<br>保证有且只有一个解</p>
+<p>首先T1；<br>简单数独，<br>一个4*4的<br>简单的DFS枚举即可<br>h[][]为行的判重，l为列<br>s为小区间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;cstdlib&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#include&lt;bitset&gt;</div><div class="line">#include&lt;iomanip&gt;</div><div class="line">#include&lt;deque&gt;</div><div class="line">#include&lt;ctime&gt;</div><div class="line">#define INF 1000000000</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">#define N 100005</div><div class="line">#define P 1000000007</div><div class="line">#define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot;=&quot;&lt;&lt;x&lt;&lt;endl</div><div class="line">#define MP(x,y) make_pair(x,y)</div><div class="line">#define searchnext(x,y) y==4? dfs(x+1,1):dfs(x,y+1)</div><div class="line">using namespace std;</div><div class="line">int n=4,m,a[10][10],score=0,ans=-1,b[10][10];</div><div class="line">bool h[10][10],l[10][10],g[10][10];</div><div class="line">inline int get_num()</div><div class="line">&#123;</div><div class="line">int num = 0;</div><div class="line">char c;</div><div class="line">bool flag = false;</div><div class="line">while ((c = getchar()) == &apos; &apos; || c == &apos;\n&apos; || c == &apos;\r&apos;);</div><div class="line">if (c == &apos;-&apos;) flag = true;</div><div class="line">else num = c - &apos;0&apos;;</div><div class="line">while (isdigit(c = getchar()))</div><div class="line">num = num * 10 + c - &apos;0&apos;;</div><div class="line">return (flag ? -1 : 1) * num;</div><div class="line">&#125;</div><div class="line">bool add(int x,int y ,int k)</div><div class="line">&#123;</div><div class="line">	if(h[x][k])return 0;</div><div class="line">	if(l[y][k])return 0;</div><div class="line">	int ll=(x-1)/2*2+(y-1)/2+1;</div><div class="line">	if(g[ll][k])return 0;</div><div class="line">	h[x][k]=1;</div><div class="line">	l[y][k]=1;</div><div class="line">	g[ll][k]=1;</div><div class="line">	b[x][y]=k;</div><div class="line">	return 1;</div><div class="line">&#125;</div><div class="line">void del(int x,int y,int k)</div><div class="line">&#123;</div><div class="line">	h[x][k]=0;</div><div class="line">	l[y][k]=0;</div><div class="line">	g[(x-1)/2*2+(y-1)/2+1][k]=0;</div><div class="line">	b[x][y]=0;</div><div class="line">&#125;</div><div class="line">bool vv=0;</div><div class="line">void dfs(int x,int y)</div><div class="line">&#123;</div><div class="line">	if(vv)return;</div><div class="line">	//if(clock()&gt;1000)return;</div><div class="line">	if(x==5&amp;&amp;y==1)</div><div class="line">	&#123;</div><div class="line">		for(int i=1;i&lt;=n;i++)</div><div class="line">	&#123;</div><div class="line">		for(int j=1;j&lt;=n;j++)</div><div class="line">		&#123;</div><div class="line">			cout&lt;&lt;b[i][j]&lt;&lt; &quot; &quot;;</div><div class="line">		&#125;cout&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">		vv=1;</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	if(b[x][y])</div><div class="line">	&#123;</div><div class="line">		searchnext(x,y);</div><div class="line">	&#125;else</div><div class="line">	&#123;</div><div class="line">		for(int i=1;i&lt;=4;i++)</div><div class="line">		&#123;</div><div class="line">			if(add(x,y,i))</div><div class="line">			&#123;</div><div class="line">				searchnext(x,y);</div><div class="line">				del(x,y,i);</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	for(int i=1;i&lt;=n;i++)</div><div class="line">	&#123;</div><div class="line">		for(int j=1;j&lt;=n;j++)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;a[i][j];</div><div class="line">			if(a[i][j])</div><div class="line">			&#123;</div><div class="line">				add(i,j,a[i][j]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	dfs(1,1);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后T2</p>
+<h3 id="4491-验证数独"><a href="#4491-验证数独" class="headerlink" title="4491 验证数独"></a>4491 验证数独</h3><p> 时间限制: 1 s<br> 空间限制: 128000 KB<br> 题目等级 : 青铜 Bronze<br> 题解<br>题目描述 Description<br>具体规则如下：</p>
+<p>每一行都用到1、2、3、4、5、6、7、8、9，位置不限；</p>
+<p>每一列都用到1、2、3、4、5、6、7、8、9，位置不限；</p>
+<p>每3×3的格子（共九个这样的格子）都用到1、2、3、4、5、6、7、8、9，位置不限。</p>
+<p>游戏的过程就是用1、2、3、4、5、6、7、8、9填充空白，并要求满足每行、每列、每个九宫格都用到1、2、3、4、5、6、7、8、9。</p>
+<p>如下是一个正确的数独：</p>
+<p>5 8 1 4 9 3 7 6 2</p>
+<p>9 6 3 7 1 2 5 8 4</p>
+<p>2 7 4 8 6 5 9 3 1</p>
+<p>1 2 9 5 4 6 3 7 8</p>
+<p>4 3 6 1 8 7 2 9 5</p>
+<p>7 5 8 3 2 9 1 4 6</p>
+<p>8 9 2 6 7 1 4 5 3</p>
+<p>6 1 5 9 3 4 8 2 7</p>
+<p>3 4 7 2 5 8 6 1 9</p>
+<p>输入描述 Input Description<br>输入n个数独，你来验证它是否违反规则。</p>
+<p>第一行为数独个数，第二行开始为第一个数独，之后为第二个，至第n个。</p>
+<p>注意！每个数独之间有一个回车隔开!</p>
+<p>输出描述 Output Description<br>若正确则输出”Right”若不正确则输出”Wrong”，输出一个换一行。</p>
+<p>样例输入 Sample Input<br>2</p>
+<p>5 8 1 4 9 3 7 6 2</p>
+<p>9 6 3 7 1 2 5 8 4</p>
+<p>2 7 4 8 6 5 9 3 1</p>
+<p>1 2 9 5 4 6 3 7 8</p>
+<p>4 3 6 1 8 7 2 9 5</p>
+<p>7 5 8 3 2 9 1 4 6</p>
+<p>8 9 2 6 7 1 4 5 3</p>
+<p>6 1 5 9 3 4 8 2 7</p>
+<p>3 4 7 2 5 8 6 1 9</p>
+<p>1 2 3 4 5 6 7 8 9</p>
+<p>2 3 4 5 6 7 8 9 1</p>
+<p>3 4 5 6 7 8 9 1 2</p>
+<p>4 5 6 7 8 9 1 2 3</p>
+<p>5 6 7 8 9 1 2 3 4</p>
+<p>6 7 8 9 1 2 3 4 5</p>
+<p>7 8 9 1 2 3 4 5 6</p>
+<p>8 9 1 2 3 4 5 6 7</p>
+<p>9 1 2 3 4 5 6 7 8</p>
+<p>样例输出 Sample Output<br>Right</p>
+<p>Wrong</p>
+<p>数据范围及提示 Data Size &amp; Hint<br>1≤n≤20（输入的数独个数）。</p>
+<p>不论输入的数独是错误的还是正确的，数据都保证每个数在1-9之间，即只会出现因为有相同的数而导致违反规则，而不会因为数字超出了1-9的范围而违反规则。</p>
+<p>这个题不让解数独，只要判断是否正确，也就是同一行同一列，同意区间，有没有相同 的就好，<br>和上一题一样，设3个判重数组，一一枚举即可；；</p>
+<p>代码：：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;cstdlib&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#include&lt;bitset&gt;</div><div class="line">#include&lt;iomanip&gt;</div><div class="line">#include&lt;deque&gt;</div><div class="line">#include&lt;ctime&gt;</div><div class="line">#define INF 1000000000</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">#define N 100005</div><div class="line">#define P 1000000007</div><div class="line">#define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot;=&quot;&lt;&lt;x&lt;&lt;endl</div><div class="line">#define MP(x,y) make_pair(x,y)</div><div class="line">#define searchnext(x,y) y==9? dfs(x+1,1):dfs(x,y+1)</div><div class="line">using namespace std;</div><div class="line">int n=9,m,a[10][10],score=0,ans=-1,b[10][10];</div><div class="line">bool h[10][10],l[10][10],g[10][10];</div><div class="line">inline int get_num()</div><div class="line">&#123;</div><div class="line">int num = 0;</div><div class="line">char c;</div><div class="line">bool flag = false;</div><div class="line">while ((c = getchar()) == &apos; &apos; || c == &apos;\n&apos; || c == &apos;\r&apos;);</div><div class="line">if (c == &apos;-&apos;) flag = true;</div><div class="line">else num = c - &apos;0&apos;;</div><div class="line">while (isdigit(c = getchar()))</div><div class="line">num = num * 10 + c - &apos;0&apos;;</div><div class="line">return (flag ? -1 : 1) * num;</div><div class="line">&#125;</div><div class="line">bool add(int x,int y ,int k)</div><div class="line">&#123;</div><div class="line">	if(h[x][k])return 0;</div><div class="line">	if(l[y][k])return 0;</div><div class="line">	int ll=(x-1)/3*3+(y-1)/3+1;</div><div class="line">	if(g[ll][k])return 0;</div><div class="line">	h[x][k]=1;</div><div class="line">	l[y][k]=1;</div><div class="line">	g[ll][k]=1;</div><div class="line">	b[x][y]=k;</div><div class="line">	return 1;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	int T;</div><div class="line">	cin&gt;&gt;T;</div><div class="line">	while(T--)</div><div class="line">	&#123;</div><div class="line">		memset(h,0,sizeof(h));</div><div class="line">		memset(l,0,sizeof(l));</div><div class="line">		memset(g,0,sizeof(g));</div><div class="line">		bool vv=0;</div><div class="line">		for(int i=1;i&lt;=n;i++)</div><div class="line">	&#123;</div><div class="line">		for(int j=1;j&lt;=n;j++)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;a[i][j];</div><div class="line">			if(a[i][j])</div><div class="line">			&#123;</div><div class="line">				if(!add(i,j,a[i][j]))</div><div class="line">				&#123;</div><div class="line">					vv=1;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	if(!vv)</div><div class="line">	    cout&lt;&lt;&quot;Right\n&quot;;</div><div class="line">	    else</div><div class="line">	    cout&lt;&lt;&quot;Wrong\n&quot;;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>T3‘</p>
+<h3 id="2924-数独挑战"><a href="#2924-数独挑战" class="headerlink" title="2924 数独挑战"></a>2924 数独挑战</h3><p> 时间限制: 1 s<br> 空间限制: 1000 KB<br> 题目等级 : 钻石 Diamond<br> 题解<br>题目描述 Description<br>“芬兰数学家因卡拉，花费3个月时间设计出了世界上迄今难度最大的数独游戏，而且它只有一个答案。因卡拉说只有思考能力最快、头脑最聪明的人才能破解这个游戏。”这是英国《每日邮报》2012年6月30日的一篇报道。这个号称“世界最难数独”的“超级游戏”，却被扬州一位69岁的农民花三天时间解了出来。</p>
+<p>看到这个新闻后，我激动不已，证明我们OI的实力的机会来了，我们虽然不是思考能力最快、头脑最聪明的人，但是我们可以保证在1s之内解题。</p>
+<p>好了废话不多说了……</p>
+<p>数独是一种填数字游戏，英文名叫Sudoku，起源于瑞士，上世纪70年代由美国一家数学逻辑游戏杂志首先发表，名为Number Place，后在日本流行，1984年将Sudoku命名为数独，即“独立的数字”的省略，解释为每个方格都填上一个个位数。2004年，曾任中国香港高等法院法官的高乐德(Wayne Gould)把这款游戏带到英国，成为英国流行的数学智力拼图游戏。</p>
+<p>　　玩家需要根据9×9盘面上的已知数字，推理出所有剩余位置（数据表示为数字0）的数字，并满足每一行、每一列、每一个粗线宫内的数字均含1-9，不重复。</p>
+<p>现在给你一个数独，请你解答出来。每个数独保证有解且只有一个。</p>
+<p>输入描述 Input Description<br>9行9列。</p>
+<p>每个数字用空格隔开。0代表要填的数</p>
+<p>行末没有空格，末尾没有回车。</p>
+<p>输出描述 Output Description<br>输出答案。</p>
+<p>排成9行9列。</p>
+<p>行末没有空格，结尾可以有回车。</p>
+<p>样例输入 Sample Input<br>2 0 0 0 1 0 8 9 0<br>0 0 7 0 0 0 0 0 0<br>0 0 0 9 0 0 0 0 7<br>0 6 0 0 0 1 3 0 0<br>0 9 0 7 3 4 0 8 0<br>0 0 3 6 0 0 0 5 0<br>6 0 0 0 0 2 0 0 0<br>0 0 0 0 0 0 1 0 0<br>0 5 9 0 8 0 0 0 3</p>
+<p>样例输出 Sample Output<br>2 4 5 3 1 7 8 9 6<br>9 1 7 2 6 8 5 3 4<br>3 8 6 9 4 5 2 1 7<br>4 6 2 8 5 1 3 7 9<br>5 9 1 7 3 4 6 8 2<br>8 7 3 6 2 9 4 5 1<br>6 3 8 1 7 2 9 4 5<br>7 2 4 5 9 3 1 6 8<br>1 5 9 4 8 6 7 2 3</p>
+<p>数据范围及提示 Data Size &amp; Hint<br>保证有解，每个数独都由<a href="http://oubk.com/" target="_blank" rel="external">http://oubk.com</a>数独网提供。</p>
+<p>其中数据hard1.in为芬兰数学家提供。</p>
+<p>这个题就是T1的升级版<br>求一个9*9的数独<br>其实程序一样，只是某些数变了而已；；</p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;cstdlib&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#include&lt;bitset&gt;</div><div class="line">#include&lt;iomanip&gt;</div><div class="line">#include&lt;deque&gt;</div><div class="line">#include&lt;ctime&gt;</div><div class="line">#define INF 1000000000</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">#define N 100005</div><div class="line">#define P 1000000007</div><div class="line">#define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot;=&quot;&lt;&lt;x&lt;&lt;endl</div><div class="line">#define MP(x,y) make_pair(x,y)</div><div class="line">#define searchnext(x,y) y==9? dfs(x+1,1):dfs(x,y+1)</div><div class="line">using namespace std;</div><div class="line">int n=9,m,a[10][10],score=0,ans=-1,b[10][10];</div><div class="line">bool h[10][10],l[10][10],g[10][10];</div><div class="line">inline int get_num()</div><div class="line">&#123;</div><div class="line">int num = 0;</div><div class="line">char c;</div><div class="line">bool flag = false;</div><div class="line">while ((c = getchar()) == &apos; &apos; || c == &apos;\n&apos; || c == &apos;\r&apos;);</div><div class="line">if (c == &apos;-&apos;) flag = true;</div><div class="line">else num = c - &apos;0&apos;;</div><div class="line">while (isdigit(c = getchar()))</div><div class="line">num = num * 10 + c - &apos;0&apos;;</div><div class="line">return (flag ? -1 : 1) * num;</div><div class="line">&#125;</div><div class="line">bool add(int x,int y ,int k)</div><div class="line">&#123;</div><div class="line">	if(h[x][k])return 0;</div><div class="line">	if(l[y][k])return 0;</div><div class="line">	int ll=(x-1)/3*3+(y-1)/3+1;</div><div class="line">	if(g[ll][k])return 0;</div><div class="line">	h[x][k]=1;</div><div class="line">	l[y][k]=1;</div><div class="line">	g[ll][k]=1;</div><div class="line">	b[x][y]=k;</div><div class="line">	return 1;</div><div class="line">&#125;</div><div class="line">void del(int x,int y,int k)</div><div class="line">&#123;</div><div class="line">	h[x][k]=0;</div><div class="line">	l[y][k]=0;</div><div class="line">	g[(x-1)/3*3+(y-1)/3+1][k]=0;</div><div class="line">	b[x][y]=0;</div><div class="line">&#125;</div><div class="line">bool vv=0;</div><div class="line">void dfs(int x,int y)</div><div class="line">&#123;</div><div class="line">	if(vv)return;</div><div class="line">	//if(clock()&gt;1000)return;</div><div class="line">	if(x==10&amp;&amp;y==1)</div><div class="line">	&#123;</div><div class="line">		for(int i=1;i&lt;=n;i++)</div><div class="line">	&#123;</div><div class="line">		for(int j=1;j&lt;=n;j++)</div><div class="line">		&#123;</div><div class="line">			cout&lt;&lt;b[i][j]&lt;&lt; &quot; &quot;;</div><div class="line">		&#125;cout&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">		vv=1;</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	if(b[x][y])</div><div class="line">	&#123;</div><div class="line">		searchnext(x,y);</div><div class="line">	&#125;else</div><div class="line">	&#123;</div><div class="line">		for(int i=1;i&lt;=9;i++)</div><div class="line">		&#123;</div><div class="line">			if(add(x,y,i))</div><div class="line">			&#123;</div><div class="line">				searchnext(x,y);</div><div class="line">				del(x,y,i);</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	for(int i=1;i&lt;=n;i++)</div><div class="line">	&#123;</div><div class="line">		for(int j=1;j&lt;=n;j++)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;a[i][j];</div><div class="line">			if(a[i][j])</div><div class="line">			&#123;</div><div class="line">				add(i,j,a[i][j]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	dfs(1,1);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>T4</p>
+<h3 id="1174-靶形数独-2009年NOIP全国联赛提高组"><a href="#1174-靶形数独-2009年NOIP全国联赛提高组" class="headerlink" title="1174 靶形数独  2009年NOIP全国联赛提高组"></a>1174 靶形数独  2009年NOIP全国联赛提高组</h3><p> 时间限制: 4 s<br> 空间限制: 128000 KB<br> 题目等级 : 钻石 Diamond<br> 题解<br>题目描述 Description<br>小城和小华都是热爱数学的好学生，最近，他们不约而同地迷上了数独游戏，好胜的他<br>们想用数独来一比高低。但普通的数独对他们来说都过于简单了，于是他们向Z 博士请教，<br>Z 博士拿出了他最近发明的“靶形数独”，作为这两个孩子比试的题目。<br>靶形数独的方格同普通数独一样，在 9 格宽×9 格高的大九宫格中有9 个3 格宽×3 格<br>高的小九宫格（用粗黑色线隔开的）。在这个大九宫格中，有一些数字是已知的，根据这些</p>
+<p>数字，利用逻辑推理，在其他的空格上填入1 到9 的数字。每个数字在每个小九宫格内不能<br>重复出现，每个数字在每行、每列也不能重复出现。但靶形数独有一点和普通数独不同，即<br>每一个方格都有一个分值，而且如同一个靶子一样，离中心越近则分值越高。</p>
+<p>上图具体的分值分布是：最里面一格（黄色区域）为 10 分，黄色区域外面的一圈（红<br>色区域）每个格子为9 分，再外面一圈（蓝色区域）每个格子为8 分，蓝色区域外面一圈（棕<br>色区域）每个格子为7 分，最外面一圈（白色区域）每个格子为6 分，如上图所示。比赛的<br>要求是：每个人必须完成一个给定的数独（每个给定数独可能有不同的填法），而且要争取<br>更高的总分数。而这个总分数即每个方格上的分值和完成这个数独时填在相应格上的数字<br>的乘积的总和。如图，在以下的这个已经填完数字的靶形数独游戏中，总分数为2829。游<br>戏规定，将以总分数的高低决出胜负。</p>
+<p>由于求胜心切，小城找到了善于编程的你，让你帮他求出，对于给定的靶形数独，能<br>够得到的最高分数。</p>
+<p>输入描述 Input Description<br>一共 9 行。每行9 个整数（每个数都在0—9 的范围内），表示一个尚未填满的数独方<br>格，未填的空格用“0”表示。每两个数字之间用一个空格隔开。</p>
+<p>输出描述 Output Description<br>输出可以得到的靶形数独的最高分数。如果这个数独无解，则输出整数-1。</p>
+<p>样例输入 Sample Input<br>【输入输出样例 1】</p>
+<p>7 0 0 9 0 0 0 0 1<br>1 0 0 0 0 5 9 0 0<br>0 0 0 2 0 0 0 8 0<br>0 0 5 0 2 0 0 0 3<br>0 0 0 0 0 0 6 4 8<br>4 1 3 0 0 0 0 0 0<br>0 0 7 0 0 2 0 9 0<br>2 0 1 0 6 0 8 0 4<br>0 8 0 5 0 4 0 1 2</p>
+<p>【输入输出样例 2】</p>
+<p>0 0 0 7 0 2 4 5 3<br>9 0 0 0 0 8 0 0 0<br>7 4 0 0 0 5 0 1 0<br>1 9 5 0 8 0 0 0 0<br>0 7 0 0 0 0 0 2 5<br>0 3 0 5 7 9 1 0 8<br>0 0 0 6 0 1 0 0 0<br>0 6 0 9 0 0 0 0 1<br>0 0 0 0 0 0 0 0 6</p>
+<p>样例输出 Sample Output<br>【输入输出样例 1】</p>
+<p>2829</p>
+<p>【输入输出样例 1】</p>
+<p>2852</p>
+<p>数据范围及提示 Data Size &amp; Hint<br>【数据范围】<br>40%的数据，数独中非0 数的个数不少于30。<br>80%的数据，数独中非0 数的个数不少于26。<br>100%的数据，数独中非0 数的个数不少于24。</p>
+<p>这个题是T3的升级版，对于每个位置上的数给了价值，<br>做法就是dfs出数独的每一种情况，之后计算得分，取最大值；<br>但是会TLE;<br>codevs加上卡时之后80分。<br>但是，将输入倒过来就能AC了；<br>看来是出题人故意卡的顺序读入；</p>
+<p>代码：：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div></pre></td><td class="code"><pre><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;cstdlib&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#include&lt;bitset&gt;</div><div class="line">#include&lt;iomanip&gt;</div><div class="line">#include&lt;deque&gt;</div><div class="line">#include&lt;ctime&gt;</div><div class="line">#define INF 1000000000</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">#define N 100005</div><div class="line">#define P 1000000007</div><div class="line">#define debug(x) cerr&lt;&lt;#x&lt;&lt;&quot;=&quot;&lt;&lt;x&lt;&lt;endl</div><div class="line">#define MP(x,y) make_pair(x,y)</div><div class="line">#define searchnext(x,y) y==9? dfs(x+1,1):dfs(x,y+1)</div><div class="line">using namespace std;</div><div class="line">int n=9,m,a[10][10],score=0,ans=-1,b[10][10];</div><div class="line">bool h[10][10],l[10][10],g[10][10];</div><div class="line">inline int get_num()</div><div class="line">&#123;</div><div class="line">int num = 0;</div><div class="line">char c;</div><div class="line">bool flag = false;</div><div class="line">while ((c = getchar()) == &apos; &apos; || c == &apos;\n&apos; || c == &apos;\r&apos;);</div><div class="line">if (c == &apos;-&apos;) flag = true;</div><div class="line">else num = c - &apos;0&apos;;</div><div class="line">while (isdigit(c = getchar()))</div><div class="line">num = num * 10 + c - &apos;0&apos;;</div><div class="line">return (flag ? -1 : 1) * num;</div><div class="line">&#125;</div><div class="line">int getscore(int x,int y,int k)</div><div class="line">&#123;</div><div class="line">	if(x==y&amp;&amp;x==5)</div><div class="line">	&#123;</div><div class="line">		return k*10;</div><div class="line">	&#125;</div><div class="line">	if(x==1||x==n||y==1||y==n)return 6*k;</div><div class="line">	if(x==2||x==8||y==2||y==8)return 7*k;</div><div class="line">	if(x==3||x==7||y==3||y==7)return 8*k;</div><div class="line">	if(x==4||x==6||y==4||y==6)return 9*k;</div><div class="line">&#125;</div><div class="line">bool add(int x,int y ,int k)</div><div class="line">&#123;</div><div class="line">	if(h[x][k])return 0;</div><div class="line">	if(l[y][k])return 0;</div><div class="line">	int ll=(x-1)/3*3+(y-1)/3+1;</div><div class="line">	if(g[ll][k])return 0;</div><div class="line">	h[x][k]=1;</div><div class="line">	l[y][k]=1;</div><div class="line">	g[ll][k]=1;</div><div class="line">	b[x][y]=k;</div><div class="line">	score+=getscore(x,y,k);</div><div class="line">	return 1;</div><div class="line">&#125;</div><div class="line">void del(int x,int y,int k)</div><div class="line">&#123;</div><div class="line">	h[x][k]=0;</div><div class="line">	l[y][k]=0;</div><div class="line">	g[(x-1)/3*3+(y-1)/3+1][k]=0;</div><div class="line">	b[x][y]=0;</div><div class="line">&#125;</div><div class="line">void dfs(int x,int y)</div><div class="line">&#123;</div><div class="line">	//if(clock()&gt;1000)return;</div><div class="line">	if(x==10&amp;&amp;y==1)</div><div class="line">	&#123;</div><div class="line">		ans=max(ans,score);</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	if(b[x][y])</div><div class="line">	&#123;</div><div class="line">		searchnext(x,y);</div><div class="line">	&#125;else</div><div class="line">	&#123;</div><div class="line">		for(int i=1;i&lt;=9;i++)</div><div class="line">		&#123;</div><div class="line">			int t=score;</div><div class="line">			if(add(x,y,i))</div><div class="line">			&#123;</div><div class="line">				searchnext(x,y);</div><div class="line">				del(x,y,i);</div><div class="line">				score=t;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	for(int i=n;i&gt;=1;i--)</div><div class="line">	&#123;</div><div class="line">		for(int j=n;j&gt;=1;j--)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;a[i][j];</div><div class="line">			if(a[i][j])</div><div class="line">			&#123;</div><div class="line">				add(i,j,a[i][j]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	dfs(1,1);</div><div class="line">    cout&lt;&lt;ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>呜啦啦啦啦</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/08/08/codevs 1507 酒厂选址 题解报告/" rel="next" title="codevs 1507 酒厂选址 题解报告">
+                <i class="fa fa-chevron-left"></i> codevs 1507 酒厂选址 题解报告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/08/08/NOIP 2013 货车运输 题解过程/" rel="prev" title="NOIP 2013 货车运输 题解过程">
+                NOIP 2013 货车运输 题解过程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/pic/title.jpg"
+               alt="Xrvitd." />
+          <p class="site-author-name" itemprop="name">Xrvitd.</p>
+           
+              <p class="site-description motion-element" itemprop="description"> 自己选择的路，跪着也要走完。 </p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#这个是真的烦。。"><span class="nav-number">1.</span> <span class="nav-text">这个是真的烦。。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4966-简单数独-4491-验证数独-2207-验证数独"><span class="nav-number">1.1.</span> <span class="nav-text">4966 简单数独 4491 验证数独 2207 验证数独</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2924-数独挑战-1174-靶形数独"><span class="nav-number">1.2.</span> <span class="nav-text">2924 数独挑战 1174 靶形数独</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4966-简单数独"><span class="nav-number">1.3.</span> <span class="nav-text">4966 简单数独</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4491-验证数独"><span class="nav-number">1.4.</span> <span class="nav-text">4491 验证数独</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2924-数独挑战"><span class="nav-number">1.5.</span> <span class="nav-text">2924 数独挑战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1174-靶形数独-2009年NOIP全国联赛提高组"><span class="nav-number">1.6.</span> <span class="nav-text">1174 靶形数独  2009年NOIP全国联赛提高组</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xrvitd.</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
